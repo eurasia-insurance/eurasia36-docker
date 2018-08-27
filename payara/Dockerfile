@@ -8,3 +8,5 @@ RUN /app/keys/import-keys.sh
 
 COPY --chown=payara ./resources/ /app/resources/
 RUN /app/resources/create-resources.sh >> $POSTBOOT_COMMANDS
+
+ADD --chown=payara https://artifactory.lapsa.tech/artifactory/libs-release/tech/lapsa/esbd/esbd-dao-app/2.2.6/esbd-dao-app-2.2.6.ear $AUTODEPLOY_DIR
