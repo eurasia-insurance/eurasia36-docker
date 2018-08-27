@@ -5,6 +5,9 @@ DIR=`dirname $0`
 . $DIR/functions.sh
 . $DIR/setting.conf
 
+echo "delete-jvm-options \-Dcom.sun.enterprise.security.httpsOutboundKeyAlias=s1as"
+echo "create-jvm-options \-Dcom.sun.enterprise.security.httpsOutboundKeyAlias=eur-ssl-evsyukovd-2"
+
 MYSQL_CRED="$MYSQL_HOST $MYSQL_PORT $MYSQL_USER $MYSQL_PASS"
 
 # JDBC Resources
