@@ -140,3 +140,6 @@ create-mail insurance/mail/messaging/UserNotification \
     "$USER_MAIL_FORCE" \
     "$USER_MAIL_HOST" \
     "$USER_MAIL_PORT"
+
+echo 'create-http-listener --listenerport 8009 --listeneraddress 0.0.0.0 --defaultvs server jk-listener-1'
+echo 'set server-config.network-config.network-listeners.network-listener.jk-listener-1.jk-enabled=true'
