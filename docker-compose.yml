@@ -1,0 +1,14 @@
+version: '3'
+
+services:
+  mariadb:
+    build: ./mariadb/
+    volumes: 
+    - ./.mysql:/var/lib/mysql
+  payara:
+    build: ./payara/
+    links:
+    - mariadb
+    ports:
+    - 4848:4848
+
