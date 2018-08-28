@@ -1,0 +1,6 @@
+version: '3'
+
+services:
+  payara-base:
+    build: .
+    image: eurasia36/payara-base:latest

@@ -1,0 +1,6 @@
+version: '3'
+
+services:
+  payara-deployed:
+    build: .
+    image: eurasia36/payara-apps:latest
