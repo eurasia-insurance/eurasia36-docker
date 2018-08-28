@@ -6,7 +6,7 @@ services:
     volumes: 
     - ./.mysql_data:/var/lib/mysql
   payara:
-    build: ./payara/
+    image: eurasia36/payara-apps:latest
     volumes:
     - ./.payara_config:/opt/payara5/glassfish/domains/domain1/docker-config
     links:
@@ -14,9 +14,7 @@ services:
     ports:
     - 4848:4848
   httpd:
-    image: eurasia36-docroot_e36:latest
-    volumes:
-    - /Users/vadim.isaev/wrk/php/grafica/eurasia36-docroot/docroot:/var/www/eurasia36.kz
+    image: eurasia36/httpd-apps:latest
     links:
     - payara
     ports:
