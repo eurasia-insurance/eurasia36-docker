@@ -7,8 +7,18 @@ services:
     - ./.mysql_data:/var/lib/mysql
   payara:
     build: ./payara/
+    volumes:
+    - ./.payara_config:/opt/payara5/glassfish/domains/domain1/docker-config
     links:
     - mariadb
     ports:
     - 4848:4848
-
+  httpd:
+    image: eurasia36-docroot_e36:latest
+    volumes:
+    - /Users/vadim.isaev/wrk/php/grafica/eurasia36-docroot/docroot:/var/www/eurasia36.kz
+    links:
+    - payara
+    ports:
+    - 80:80
+    - 443:443
