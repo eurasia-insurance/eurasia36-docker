@@ -3,6 +3,7 @@ version: '3'
 services:
   mariadb:
     build: ./mariadb/
+    image: eurasia36/mariadb:latest
     volumes: 
     - ./.mysql_data:/var/lib/mysql
   payara:
