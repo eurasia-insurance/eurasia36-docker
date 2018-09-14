@@ -2,7 +2,6 @@ version: '3'
 
 services:
   mariadb:
-    build: ./mariadb/
     image: eurasia36/mariadb:latest
     volumes: 
     - ./.mysql_data:/var/lib/mysql
@@ -18,6 +17,16 @@ services:
     image: eurasia36/httpd-apps:latest
     links:
     - payara
+    volumes:
+    - ./.httpd_data/leads:/var/www/eurasia36_kz/leads
+    - ./.pki/private/STAR_eurasia36_kz-key.pem:/etc/pki/tls/private/STAR_eurasia36_kz-key.pem
+    - ./.pki/certs/STAR_eurasia36_kz-chain.pem:/etc/pki/tls/certs/STAR_eurasia36_kz-chain.pem
+    - ./.pki/private/eurasia36_kz-key.pem:/etc/pki/tls/private/eurasia36_kz-key.pem
+    - ./.pki/certs/eurasia36_kz-chain.pem:/etc/pki/tls/certs/eurasia36_kz-chain.pem
+    environment:
+    - EURASIA36_WS_URL=https://payara:8181/
+    - EURASIA36_WS_USER=admin
+    - EURASIA36_WS_PASSWORD=admin
     ports:
     - 80:80
     - 443:443
