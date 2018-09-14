@@ -3,14 +3,14 @@ MAINTAINER "Vadim Isaev" <vadim.o.isaev@gmail.com>
 
 # importing keys and tuneup coonection to ESBD
 
-ENV ESBD_KEY_ALIAS eur-ssl-evsyukovd-2
+ENV ESBD_KEY_ALIAS eur-ssl-evsyukovd
 
 COPY --chown=payara ./esbd_keys/ /tmp/esbd_keys/
 RUN keytool -importkeystore \
-        -srckeystore /tmp/esbd_keys/keystore.jks -srcstorepass changeit \
+        -srckeystore /tmp/esbd_keys/eur-ssl-evsyukovd.jks -srcstorepass changeit \
         -destkeystore ${PAYARA_CONFIG_PATH}/keystore.jks -deststorepass changeit && \
     keytool -importkeystore \
-        -srckeystore /tmp/esbd_keys/trustedstore.jks -srcstorepass changeit \
+        -srckeystore /tmp/esbd_keys/kisc-ca-certs.jks -srcstorepass changeit \
         -destkeystore ${PAYARA_CONFIG_PATH}/cacerts.jks -deststorepass changeit && \
     rm -rf /tmp/esbd_keys && \
     ${PAYARA_PATH}/bin/asadmin start-domain ${PAYARA_DOMAIN} && \
