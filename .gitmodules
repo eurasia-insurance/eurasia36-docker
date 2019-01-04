@@ -1,9 +1,6 @@
 [submodule "httpd/eurasia36_kz"]
 	path = httpd/eurasia36_kz
-	url = https://gitlab.lapsa.tech/graphica/eurasia36-docroot.git
+	url = https://github.com/eurasia-insurance/eurasia36-web.git
 [submodule "httpd/payment_eurasia36_kz"]
 	path = httpd/payment_eurasia36_kz
-	url = https://gitlab.lapsa.tech/graphica/payment-docroot.git
-[submodule "httpd/eurasia36-kz"]
-	path = httpd/eurasia36-kz
-	url = https://gitlab.lapsa.tech/graphica/eurasia36-docroot.git
+	url = https://github.com/eurasia-insurance/epayment-web.git
